@@ -1,0 +1,568 @@
+/* ==========================================
+   Registration Container
+   ========================================== */
+.registration-container {
+    min-height: 100vh;
+    padding: 100px 5% 50px;
+    background: var(--bg-secondary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.registration-card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 40px var(--shadow);
+    padding: 3rem;
+    max-width: 800px;
+    width: 100%;
+    animation: slideUp 0.6s ease;
+}
+
+/* ==========================================
+   Progress Bar
+   ========================================== */
+.progress-container {
+    margin-bottom: 3rem;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: var(--bg-secondary);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-radius: 10px;
+    transition: width 0.5s ease;
+    width: 25%;
+}
+
+.progress-steps {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+    position: relative;
+}
+
+.step-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: var(--transition);
+    border: 3px solid var(--bg-secondary);
+    z-index: 2;
+}
+
+.progress-step.active .step-circle {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
+}
+
+.progress-step.completed .step-circle {
+    background: var(--secondary-color);
+    color: white;
+    border-color: var(--secondary-color);
+}
+
+.progress-step.completed .step-circle::after {
+    content: '✓';
+}
+
+.step-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.progress-step.active .step-label {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* ==========================================
+   Form Steps
+   ========================================== */
+.form-step {
+    display: none;
+    animation: fadeInRight 0.5s ease;
+}
+
+.form-step.active {
+    display: block;
+}
+
+.form-step h2 {
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+}
+
+.step-description {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    font-size: 1rem;
+}
+
+/* ==========================================
+   Form Groups
+   ========================================== */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.label-icon {
+    font-size: 1.2rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--bg-secondary);
+    border-radius: var(--border-radius);
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    font-family: inherit;
+}
+
+.error-message {
+    display: block;
+    color: #e74c3c;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    min-height: 20px;
+}
+
+/* ==========================================
+   Course Preview
+   ========================================== */
+.course-preview {
+    background: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    margin: 1.5rem 0;
+    animation: fadeIn 0.3s ease;
+}
+
+.course-preview h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.preview-details {
+    display: grid;
+    gap: 0.8rem;
+}
+
+.preview-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--bg-color);
+}
+
+.preview-item:last-child {
+    border-bottom: none;
+}
+
+/* ==========================================
+   Payment Methods
+   ========================================== */
+.payment-methods {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.payment-option {
+    cursor: pointer;
+}
+
+.payment-option input[type="radio"] {
+    display: none;
+}
+
+.payment-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1.5rem;
+    background: var(--bg-secondary);
+    border: 2px solid transparent;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    text-align: center;
+}
+
+.payment-option input[type="radio"]:checked + .payment-card {
+    border-color: var(--primary-color);
+    background: var(--primary-color);
+    color: white;
+}
+
+.payment-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px var(--shadow);
+}
+
+.payment-icon {
+    font-size: 2rem;
+}
+
+/* ==========================================
+   Payment Summary
+   ========================================== */
+.payment-summary {
+    background: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 2rem;
+}
+
+.payment-summary h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--bg-color);
+}
+
+.summary-item:last-child {
+    border-bottom: none;
+}
+
+.summary-item.total {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    padding-top: 1rem;
+    margin-top: 0.5rem;
+    border-top: 2px solid var(--primary-color);
+}
+
+/* ==========================================
+   Checkbox
+   ========================================== */
+.checkbox-label {
+    display: flex !important;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: auto;
+    cursor: pointer;
+}
+
+/* ==========================================
+   Form Navigation
+   ========================================== */
+.form-navigation {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    justify-content: flex-end;
+}
+
+.btn {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-prev {
+    background: var(--bg-secondary);
+    color: var(--text-color);
+}
+
+.btn-prev:hover {
+    background: var(--text-secondary);
+    color: white;
+    transform: translateX(5px);
+}
+
+.btn-next,
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-next:hover,
+.btn-primary:hover {
+    background: var(--secondary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(74, 144, 226, 0.4);
+}
+
+.btn-secondary {
+    background: var(--bg-secondary);
+    color: var(--text-color);
+}
+
+.btn-secondary:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* ==========================================
+   Success Animation
+   ========================================== */
+.success-animation {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.success-icon {
+    font-size: 6rem;
+    animation: bounceIn 0.8s ease;
+    margin-bottom: 1rem;
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.success-animation h2 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.success-animation p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+/* ==========================================
+   Confirmation Details
+   ========================================== */
+.confirmation-details {
+    background: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    margin: 2rem 0;
+}
+
+.confirmation-details h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.detail-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--bg-color);
+}
+
+.detail-item:last-child {
+    border-bottom: none;
+}
+
+.detail-icon {
+    font-size: 2rem;
+}
+
+.detail-item strong {
+    display: block;
+    color: var(--text-color);
+    margin-bottom: 0.3rem;
+}
+
+.detail-item p {
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* ==========================================
+   Next Steps
+   ========================================== */
+.next-steps {
+    margin: 2rem 0;
+}
+
+.next-steps h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.next-step-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.next-step-item:hover {
+    transform: translateX(-5px);
+    box-shadow: 0 3px 10px var(--shadow);
+}
+
+.step-number {
+    min-width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.next-step-item p {
+    margin: 0;
+    padding-top: 0.5rem;
+    color: var(--text-color);
+}
+
+/* ==========================================
+   Animations
+   ========================================== */
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================
+   Responsive Design
+   ========================================== */
+@media (max-width: 768px) {
+    .registration-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .progress-steps {
+        gap: 0.5rem;
+    }
+
+    .step-circle {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .step-label {
+        font-size: 0.7rem;
+    }
+
+    .form-step h2 {
+        font-size: 1.5rem;
+    }
+
+    .payment-methods {
+        grid-template-columns: 1fr;
+    }
+
+    .form-navigation {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .success-icon {
+        font-size: 4rem;
+    }
+}
