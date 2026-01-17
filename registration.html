@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التسجيل - مركز التدريب</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/registration.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">🎓 مركز التدريب</div>
+        <ul class="nav-links">
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="courses.html">الدورات</a></li>
+            <li><a href="registration.html">التسجيل</a></li>
+            <li><a href="success-stories.html">قصص النجاح</a></li>
+            <li><a href="contact.html">تواصل معنا</a></li>
+        </ul>
+        <button class="theme-toggle" id="themeToggle" aria-label="تبديل الوضع">
+            🌙
+        </button>
+    </nav>
+
+    <!-- Registration Container -->
+    <div class="registration-container">
+        <div class="registration-card">
+            <!-- Progress Bar -->
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="progress-steps">
+                    <div class="progress-step active" data-step="1">
+                        <div class="step-circle">1</div>
+                        <div class="step-label">البيانات الشخصية</div>
+                    </div>
+                    <div class="progress-step" data-step="2">
+                        <div class="step-circle">2</div>
+                        <div class="step-label">اختيار الدورة</div>
+                    </div>
+                    <div class="progress-step" data-step="3">
+                        <div class="step-circle">3</div>
+                        <div class="step-label">الدفع</div>
+                    </div>
+                    <div class="progress-step" data-step="4">
+                        <div class="step-circle">4</div>
+                        <div class="step-label">التأكيد</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 1: Personal Info -->
+            <div class="form-step active" id="step1">
+                <h2>البيانات الشخصية</h2>
+                <p class="step-description">أدخل معلوماتك الشخصية للبدء</p>
+
+                <div class="form-group">
+                    <label for="fullName">
+                        <span class="label-icon">👤</span>
+                        الاسم الكامل
+                    </label>
+                    <input type="text" id="fullName" placeholder="أدخل اسمك الكامل" required>
+                    <span class="error-message" id="nameError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">
+                        <span class="label-icon">📧</span>
+                        البريد الإلكتروني
+                    </label>
+                    <input type="email" id="email" placeholder="example@email.com" required>
+                    <span class="error-message" id="emailError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">
+                        <span class="label-icon">📱</span>
+                        رقم الهاتف
+                    </label>
+                    <input type="tel" id="phone" placeholder="05xxxxxxxx" required>
+                    <span class="error-message" id="phoneError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="age">
+                        <span class="label-icon">🎂</span>
+                        العمر
+                    </label>
+                    <input type="number" id="age" placeholder="أدخل عمرك" min="15" max="100" required>
+                    <span class="error-message" id="ageError"></span>
+                </div>
+
+                <div class="form-navigation">
+                    <button class="btn btn-next" onclick="nextStep(1)">
+                        التالي ➡️
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 2: Course Selection -->
+            <div class="form-step" id="step2">
+                <h2>اختر دورتك</h2>
+                <p class="step-description">حدد الدورة التدريبية المناسبة لك</p>
+
+                <div class="form-group">
+                    <label for="courseSelect">
+                        <span class="label-icon">📚</span>
+                        اختر الدورة
+                    </label>
+                    <select id="courseSelect" required onchange="updateCoursePreview()">
+                        <option value="">-- اختر الدورة --</option>
+                        <option value="1" data-price="1200">تطوير الويب الحديث - 1200 ريال</option>
+                        <option value="2" data-price="900">التصميم الجرافيكي - 900 ريال</option>
+                        <option value="3" data-price="1500">الذكاء الاصطناعي - 1500 ريال</option>
+                        <option value="4" data-price="1100">تطوير تطبيقات الموبايل - 1100 ريال</option>
+                        <option value="5" data-price="800">تحليل البيانات - 800 ريال</option>
+                        <option value="6" data-price="700">التسويق الرقمي - 700 ريال</option>
+                        <option value="7" data-price="1400">أمن المعلومات - 1400 ريال</option>
+                        <option value="8" data-price="1000">تصميم UI/UX - 1000 ريال</option>
+                        <option value="9" data-price="1600">علم البيانات - 1600 ريال</option>
+                        <option value="10" data-price="650">إدارة وسائل التواصل - 650 ريال</option>
+                    </select>
+                    <span class="error-message" id="courseError"></span>
+                </div>
+
+                <div class="course-preview" id="coursePreview" style="display: none;">
+                    <h3>معلومات الدورة المختارة</h3>
+                    <div class="preview-details" id="previewDetails"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="level">
+                        <span class="label-icon">📊</span>
+                        مستواك الحالي
+                    </label>
+                    <select id="level" required>
+                        <option value="">-- اختر مستواك --</option>
+                        <option value="beginner">مبتدئ - لا توجد خبرة سابقة</option>
+                        <option value="intermediate">متوسط - لدي بعض الخبرة</option>
+                        <option value="advanced">متقدم - لدي خبرة جيدة</option>
+                    </select>
+                    <span class="error-message" id="levelError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="goals">
+                        <span class="label-icon">🎯</span>
+                        ما هي أهدافك من الدورة؟
+                    </label>
+                    <textarea id="goals" rows="4" placeholder="أخبرنا عن أهدافك وتطلعاتك..." required></textarea>
+                    <span class="error-message" id="goalsError"></span>
+                </div>
+
+                <div class="form-navigation">
+                    <button class="btn btn-prev" onclick="prevStep(2)">
+                        ⬅️ السابق
+                    </button>
+                    <button class="btn btn-next" onclick="nextStep(2)">
+                        التالي ➡️
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 3: Payment -->
+            <div class="form-step" id="step3">
+                <h2>معلومات الدفع</h2>
+                <p class="step-description">اختر طريقة الدفع المناسبة</p>
+
+                <div class="payment-summary">
+                    <h3>ملخص الطلب</h3>
+                    <div class="summary-item">
+                        <span>الدورة المختارة:</span>
+                        <strong id="selectedCourseName">-</strong>
+                    </div>
+                    <div class="summary-item">
+                        <span>المبلغ:</span>
+                        <strong id="coursePrice">-</strong>
+                    </div>
+                    <div class="summary-item total">
+                        <span>المجموع الكلي:</span>
+                        <strong id="totalPrice">-</strong>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <span class="label-icon">💳</span>
+                        طريقة الدفع
+                    </label>
+                    <div class="payment-methods">
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="credit" checked>
+                            <div class="payment-card">
+                                <span class="payment-icon">💳</span>
+                                <span>بطاقة ائتمانية</span>
+                            </div>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="bank">
+                            <div class="payment-card">
+                                <span class="payment-icon">🏦</span>
+                                <span>تحويل بنكي</span>
+                            </div>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="paypal">
+                            <div class="payment-card">
+                                <span class="payment-icon">💰</span>
+                                <span>PayPal</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="terms" required>
+                        <span>أوافق على <a href="#" style="color: var(--primary-color);">الشروط والأحكام</a></span>
+                    </label>
+                    <span class="error-message" id="termsError"></span>
+                </div>
+
+                <div class="form-navigation">
+                    <button class="btn btn-prev" onclick="prevStep(3)">
+                        ⬅️ السابق
+                    </button>
+                    <button class="btn btn-next" onclick="nextStep(3)">
+                        إتمام التسجيل ✨
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 4: Confirmation -->
+            <div class="form-step" id="step4">
+                <div class="success-animation">
+                    <div class="success-icon">✅</div>
+                    <h2>تم التسجيل بنجاح!</h2>
+                    <p>مبروك! لقد تم تسجيلك في الدورة بنجاح</p>
+                </div>
+
+                <div class="confirmation-details">
+                    <h3>تفاصيل التسجيل</h3>
+                    <div class="detail-item">
+                        <span class="detail-icon">👤</span>
+                        <div>
+                            <strong>الاسم</strong>
+                            <p id="confirmName">-</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-icon">📧</span>
+                        <div>
+                            <strong>البريد الإلكتروني</strong>
+                            <p id="confirmEmail">-</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-icon">📚</span>
+                        <div>
+                            <strong>الدورة</strong>
+                            <p id="confirmCourse">-</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-icon">💰</span>
+                        <div>
+                            <strong>المبلغ المدفوع</strong>
+                            <p id="confirmPrice">-</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="next-steps">
+                    <h3>الخطوات التالية</h3>
+                    <div class="next-step-item">
+                        <span class="step-number">1</span>
+                        <p>تحقق من بريدك الإلكتروني لرسالة التأكيد</p>
+                    </div>
+                    <div class="next-step-item">
+                        <span class="step-number">2</span>
+                        <p>ستتلقى رابط الوصول للدورة خلال 24 ساعة</p>
+                    </div>
+                    <div class="next-step-item">
+                        <span class="step-number">3</span>
+                        <p>ابدأ رحلتك التعليمية واستمتع بالتعلم!</p>
+                    </div>
+                </div>
+
+                <div class="form-navigation">
+                    <button class="btn btn-primary" onclick="window.location.href='index.html'">
+                        🏠 العودة للرئيسية
+                    </button>
+                    <button class="btn btn-secondary" onclick="window.location.href='courses.html'">
+                        📚 استكشف دورات أخرى
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/registration.js"></script>
+</body>
+</html>

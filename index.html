@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مركز التدريب - ابدأ رحلتك التعليمية</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">🎓 مركز التدريب</div>
+        <ul class="nav-links">
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="courses.html">الدورات</a></li>
+            <li><a href="registration.html">التسجيل</a></li>
+            <li><a href="success-stories.html">قصص النجاح</a></li>
+            <li><a href="contact.html">تواصل معنا</a></li>
+        </ul>
+        <button class="theme-toggle" id="themeToggle" aria-label="تبديل الوضع">
+            🌙
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>ابدأ رحلتك التعليمية معنا</h1>
+            <p>نقدم لك أفضل الدورات التدريبية في مختلف المجالات مع مدربين محترفين</p>
+            <button class="cta-button" onclick="scrollToSection('courses-section')">
+                ابدأ رحلتك التعليمية ✨
+            </button>
+        </div>
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
+    </section>
+
+    <!-- Learning Path Section -->
+    <section class="learning-path" id="learning-path">
+        <h2 class="section-title">المسار التعليمي</h2>
+        <div class="path-steps">
+            <div class="path-step fade-in">
+                <div class="icon">📝</div>
+                <h3>سجل حسابك</h3>
+                <p>أنشئ حسابك المجاني وابدأ رحلتك التعليمية في دقائق معدودة</p>
+            </div>
+            <div class="path-step fade-in">
+                <div class="icon">🔍</div>
+                <h3>اختر دورتك</h3>
+                <p>استكشف مجموعة واسعة من الدورات واختر ما يناسب اهتماماتك وأهدافك</p>
+            </div>
+            <div class="path-step fade-in">
+                <div class="icon">📚</div>
+                <h3>تعلم وتطور</h3>
+                <p>تعلم من خلال دروس تفاعلية ومشاريع عملية مع دعم مستمر</p>
+            </div>
+            <div class="path-step fade-in">
+                <div class="icon">🏆</div>
+                <h3>احصل على الشهادة</h3>
+                <p>أكمل الدورة بنجاح واحصل على شهادة معتمدة تعزز مسيرتك المهنية</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Carousel Section -->
+    <section class="courses-section" id="courses-section">
+        <h2 class="section-title">دوراتنا المميزة</h2>
+        <div class="carousel-container">
+            <button class="carousel-nav prev" onclick="moveCarousel(1)">❮</button>
+            <div class="carousel" id="coursesCarousel">
+                <!-- Course Card 1 -->
+                <div class="course-card" onclick="showCourseDetails(1)">
+                    <div style="height: 200px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">
+                        💻
+                    </div>
+                    <div class="course-content">
+                        <h3>تطوير الويب الحديث</h3>
+                        <div class="course-meta">
+                            <span>⏱️ 12 أسبوع</span>
+                            <span>📊 متقدم</span>
+                        </div>
+                        <p>تعلم تطوير تطبيقات الويب باستخدام أحدث التقنيات مثل React و Node.js</p>
+                        <div class="course-price">1200 ريال</div>
+                        <button class="enroll-btn">سجل الآن</button>
+                    </div>
+                </div>
+
+                <!-- Course Card 2 -->
+                <div class="course-card" onclick="showCourseDetails(2)">
+                    <div style="height: 200px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">
+                        🎨
+                    </div>
+                    <div class="course-content">
+                        <h3>التصميم الجرافيكي</h3>
+                        <div class="course-meta">
+                            <span>⏱️ 8 أسابيع</span>
+                            <span>📊 متوسط</span>
+                        </div>
+                        <p>أتقن فنون التصميم الجرافيكي باستخدام Adobe Photoshop و Illustrator</p>
+                        <div class="course-price">900 ريال</div>
+                        <button class="enroll-btn">سجل الآن</button>
+                    </div>
+                </div>
+
+                <!-- Course Card 3 -->
+                <div class="course-card" onclick="showCourseDetails(3)">
+                    <div style="height: 200px; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">
+                        🤖
+                    </div>
+                    <div class="course-content">
+                        <h3>الذكاء الاصطناعي</h3>
+                        <div class="course-meta">
+                            <span>⏱️ 16 أسبوع</span>
+                            <span>📊 متقدم</span>
+                        </div>
+                        <p>اكتشف عالم الذكاء الاصطناعي والتعلم الآلي مع Python و TensorFlow</p>
+                        <div class="course-price">1500 ريال</div>
+                        <button class="enroll-btn">سجل الآن</button>
+                    </div>
+                </div>
+
+                <!-- Course Card 4 -->
+                <div class="course-card" onclick="showCourseDetails(4)">
+                    <div style="height: 200px; background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">
+                        📱
+                    </div>
+                    <div class="course-content">
+                        <h3>تطوير تطبيقات الموبايل</h3>
+                        <div class="course-meta">
+                            <span>⏱️ 10 أسابيع</span>
+                            <span>📊 متوسط</span>
+                        </div>
+                        <p>ابني تطبيقات موبايل احترافية باستخدام React Native و Flutter</p>
+                        <div class="course-price">1100 ريال</div>
+                        <button class="enroll-btn">سجل الآن</button>
+                    </div>
+                </div>
+
+                <!-- Course Card 5 -->
+                <div class="course-card" onclick="showCourseDetails(5)">
+                    <div style="height: 200px; background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">
+                        📊
+                    </div>
+                    <div class="course-content">
+                        <h3>تحليل البيانات</h3>
+                        <div class="course-meta">
+                            <span>⏱️ 8 أسابيع</span>
+                            <span>📊 مبتدئ</span>
+                        </div>
+                        <p>تعلم تحليل البيانات وإنشاء تقارير تفاعلية باستخدام Excel و Power BI</p>
+                        <div class="course-price">800 ريال</div>
+                        <button class="enroll-btn">سجل الآن</button>
+                    </div>
+                </div>
+
+                <!-- Course Card 6 -->
+                <div class="course-card" onclick="showCourseDetails(6)">
+                    <div style="height: 200px; background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">
+                        🌐
+                    </div>
+                    <div class="course-content">
+                        <h3>التسويق الرقمي</h3>
+                        <div class="course-meta">
+                            <span>⏱️ 6 أسابيع</span>
+                            <span>📊 مبتدئ</span>
+                        </div>
+                        <p>أتقن استراتيجيات التسويق الرقمي ووسائل التواصل الاجتماعي</p>
+                        <div class="course-price">700 ريال</div>
+                        <button class="enroll-btn">سجل الآن</button>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-nav next" onclick="moveCarousel(-1)">❯</button>
+        </div>
+    </section>
+
+    <!-- Mini Quiz Section -->
+    <section class="learning-path" id="quiz-section" style="display: none;">
+        <h2 class="section-title">اكتشف الدورة المناسبة لك</h2>
+        <div class="quiz-container">
+            <div class="quiz-question" id="quizQuestion">
+                <h3>ما هو مجال اهتمامك الرئيسي؟</h3>
+                <div class="quiz-options">
+                    <button class="quiz-option" onclick="handleQuizAnswer('web')">
+                        💻 تطوير الويب
+                    </button>
+                    <button class="quiz-option" onclick="handleQuizAnswer('design')">
+                        🎨 التصميم
+                    </button>
+                    <button class="quiz-option" onclick="handleQuizAnswer('ai')">
+                        🤖 الذكاء الاصطناعي
+                    </button>
+                    <button class="quiz-option" onclick="handleQuizAnswer('mobile')">
+                        📱 تطبيقات الموبايل
+                    </button>
+                    <button class="quiz-option" onclick="handleQuizAnswer('data')">
+                        📊 تحليل البيانات
+                    </button>
+                    <button class="quiz-option" onclick="handleQuizAnswer('marketing')">
+                        🌐 التسويق الرقمي
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Notification -->
+    <div class="live-notification" id="liveNotification">
+        <div class="notification-icon">🎉</div>
+        <div class="notification-content">
+            <p><strong id="studentName">أحمد محمد</strong></p>
+            <p>انضم للتو إلى دورة <span id="courseName">تطوير الويب</span></p>
+        </div>
+    </div>
+
+    <!-- Course Details Modal -->
+    <div class="modal" id="courseModal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()">✕</button>
+            <div id="courseDetails">
+                <!-- Course details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

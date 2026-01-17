@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تواصل معنا - مركز التدريب</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/contact.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">🎓 مركز التدريب</div>
+        <ul class="nav-links">
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="courses.html">الدورات</a></li>
+            <li><a href="registration.html">التسجيل</a></li>
+            <li><a href="success-stories.html">قصص النجاح</a></li>
+            <li><a href="contact.html">تواصل معنا</a></li>
+        </ul>
+        <button class="theme-toggle" id="themeToggle" aria-label="تبديل الوضع">
+            🌙
+        </button>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>تواصل معنا</h1>
+        <p>نحن هنا للإجابة على جميع استفساراتك</p>
+    </section>
+
+    <!-- Contact Methods -->
+    <section class="contact-methods-section">
+        <div class="contact-methods">
+            <div class="contact-method-card fade-in" onclick="openContactModal('phone')">
+                <div class="method-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                    📞
+                </div>
+                <h3>اتصل بنا</h3>
+                <p>+966 50 123 4567</p>
+                <p class="method-time">متاح من 9 ص - 9 م</p>
+            </div>
+
+            <div class="contact-method-card fade-in" onclick="openContactModal('email')">
+                <div class="method-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                    📧
+                </div>
+                <h3>راسلنا</h3>
+                <p>info@training-center.com</p>
+                <p class="method-time">نرد خلال 24 ساعة</p>
+            </div>
+
+            <div class="contact-method-card fade-in" onclick="openWhatsApp()">
+                <div class="method-icon" style="background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);">
+                    💬
+                </div>
+                <h3>واتساب</h3>
+                <p>محادثة فورية</p>
+                <p class="method-time">متاح دائماً</p>
+            </div>
+
+            <div class="contact-method-card fade-in" onclick="showLocationOnMap()">
+                <div class="method-icon" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                    📍
+                </div>
+                <h3>زورنا</h3>
+                <p>الرياض، السعودية</p>
+                <p class="method-time">طريق الملك فهد</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <h2 class="section-title">موقعنا على الخريطة</h2>
+        <div class="map-container">
+            <div class="interactive-map">
+                <div class="map-placeholder">
+                    <div class="map-icon">🗺️</div>
+                    <h3>مركز التدريب</h3>
+                    <p>طريق الملك فهد، الرياض</p>
+                    <p class="map-coordinates">24.7136° N, 46.6753° E</p>
+                    <button class="map-button" onclick="openInGoogleMaps()">
+                        فتح في خرائط Google
+                    </button>
+                </div>
+            </div>
+            <div class="map-info">
+                <h3>كيفية الوصول</h3>
+                <div class="direction-item">
+                    <span class="direction-icon">🚗</span>
+                    <div>
+                        <strong>بالسيارة</strong>
+                        <p>موقف مجاني متاح للزوار</p>
+                    </div>
+                </div>
+                <div class="direction-item">
+                    <span class="direction-icon">🚇</span>
+                    <div>
+                        <strong>بالمترو</strong>
+                        <p>محطة الملك عبدالله - 5 دقائق سيراً</p>
+                    </div>
+                </div>
+                <div class="direction-item">
+                    <span class="direction-icon">🚌</span>
+                    <div>
+                        <strong>بالحافلة</strong>
+                        <p>خطوط 12، 34، 56</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Section -->
+    <section class="social-section">
+        <h2 class="section-title">تابعنا على وسائل التواصل</h2>
+        <div class="social-links">
+            <a href="#" class="social-link" style="background: linear-gradient(135deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);">
+                <span class="social-icon">📷</span>
+                <span class="social-name">Instagram</span>
+            </a>
+            <a href="#" class="social-link" style="background: linear-gradient(135deg, #1877F2, #42B9E4);">
+                <span class="social-icon">📘</span>
+                <span class="social-name">Facebook</span>
+            </a>
+            <a href="#" class="social-link" style="background: linear-gradient(135deg, #1DA1F2, #0084B4);">
+                <span class="social-icon">🐦</span>
+                <span class="social-name">Twitter</span>
+            </a>
+            <a href="#" class="social-link" style="background: linear-gradient(135deg, #0A66C2, #004182);">
+                <span class="social-icon">💼</span>
+                <span class="social-name">LinkedIn</span>
+            </a>
+            <a href="#" class="social-link" style="background: linear-gradient(135deg, #FF0000, #CC0000);">
+                <span class="social-icon">📺</span>
+                <span class="social-name">YouTube</span>
+            </a>
+            <a href="#" class="social-link" style="background: linear-gradient(135deg, #69C9D0, #EE1D52);">
+                <span class="social-icon">🎵</span>
+                <span class="social-name">TikTok</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <h2 class="section-title">الأسئلة الشائعة</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>ما هي طرق الدفع المتاحة؟</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>نوفر عدة طرق للدفع: بطاقات الائتمان، التحويل البنكي، PayPal، وإمكانية الدفع على دفعات.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>هل يمكنني استرجاع المبلغ؟</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>نعم، نوفر ضمان استرجاع المبلغ خلال 14 يوم من بداية الدورة في حال عدم رضاك.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>هل الشهادة معتمدة؟</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>نعم، جميع شهاداتنا معتمدة ومعترف بها من قبل المؤسسة العامة للتدريب التقني والمهني.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>كم مدة الوصول للمحتوى؟</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>بعد التسجيل، ستحصل على وصول غير محدود لمحتوى الدورة مدى الحياة.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>هل يوجد دعم فني؟</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>نعم، فريق الدعم الفني متاح 24/7 للإجابة على جميع استفساراتك.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Modal -->
+    <div class="modal" id="contactModal">
+        <div class="modal-content contact-modal-content">
+            <button class="close-modal" onclick="closeContactModal()">✕</button>
+            <div id="contactFormContainer">
+                <h2>تواصل معنا</h2>
+                <form id="contactForm" onsubmit="submitContactForm(event)">
+                    <div class="form-group">
+                        <label for="contactName">الاسم الكامل</label>
+                        <input type="text" id="contactName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactEmail">البريد الإلكتروني</label>
+                        <input type="email" id="contactEmail" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactPhone">رقم الهاتف</label>
+                        <input type="tel" id="contactPhone" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactSubject">الموضوع</label>
+                        <select id="contactSubject" required>
+                            <option value="">-- اختر الموضوع --</option>
+                            <option value="inquiry">استفسار عام</option>
+                            <option value="registration">استفسار عن التسجيل</option>
+                            <option value="technical">مشكلة تقنية</option>
+                            <option value="complaint">شكوى</option>
+                            <option value="suggestion">اقتراح</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactMessage">رسالتك</label>
+                        <textarea id="contactMessage" rows="5" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">
+                        إرسال الرسالة
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/contact.js"></script>
+</body>
+</html>
